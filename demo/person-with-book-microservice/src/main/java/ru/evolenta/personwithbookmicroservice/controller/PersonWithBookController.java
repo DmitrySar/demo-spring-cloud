@@ -16,6 +16,9 @@ import ru.evolenta.personwithbookmicroservice.model.Person;
 @RequestMapping("/reader")
 public class PersonWithBookController {
 
+    @Value("${variable.git}")
+    private String extVar;
+
     @Autowired
     public RestTemplate restTemplate;
 
@@ -32,6 +35,6 @@ public class PersonWithBookController {
 
     @GetMapping("/test")
     public String test() {
-        return instanceId;
+        return instanceId + " " + extVar;
     }
 }
